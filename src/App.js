@@ -1,8 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import logo from './logo.svg'
+import './App.css'
 
-function App() {
+function App(state) {
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/therapists`)
+      .then(resp => resp.json())
+      .then(json => console.log(json))
+  }, [])
+    
   return (
     <div className="App">
       <header className="App-header">
@@ -20,7 +28,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default connect((state)=>({state}))(App)
