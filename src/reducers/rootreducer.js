@@ -3,6 +3,6 @@ import auth from './auth'
 import users from './users'
 
 export default combineReducers({
-    auth,
+    auth, 
     users
 })
