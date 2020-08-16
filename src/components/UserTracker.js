@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { VictoryVoronoiContainer, VictoryLine, VictoryScatter, VictoryTooltip, VictoryGroup, VictoryChart } from 'victory'
-import UserVictoryGroup from './UserVictoryGroup'
 
 function UserTracker({ user }) {
 
@@ -26,47 +25,27 @@ function UserTracker({ user }) {
     }
 
     const uniqueDatesNestedArray = Object.values(groupedDatesObject).sort((a, b) => a[0].x > b[0].x ? 1 : -1)
-    
+
     //Render one victory group per date
-    function renderVictoryGroups() {
-        // return uniqueDatesNestedArray.map((data) => <UserVictoryGroup key={data[0].x} data={data} />)
-        return <UserVictoryGroup />
-    }
+    const victoryGroups = uniqueDatesNestedArray.map((date) => {
+        console.log(date)
 
-    function renderChart() {
-        return <div className='chart'>
-             <VictoryChart className='chart' style={{ parent: { maxWidth: '80%' } }} domain={{y: [0, 5]}}
-                height={400} width={1000} containerComponent={<VictoryVoronoiContainer />}>
-                            
-            {/* Buffer date */}
-            <VictoryGroup
-                color="#c43a31" 
-                data={[
-                    { x: ' ', y: null },
-                    // { x: '2020-08-03', y: 2 },
-                    // { x: '2020-08-03', y: 4 },
-                    // { x: '2020-08-03', y: 5 },
-                    // { x: '2020-08-04', y: 3 },
-                    // { x: '2020-08-04', y: 4 },
-                    // { x: '2020-08-05', y: 2 },
-                    // { x: '2020-08-05', y: 0 }
-                    ]}
-                labels={({ datum }) => `mood: ${datum.y}`}
-                labelComponent={ <VictoryTooltip style={{ fontSize: 16 }}/> }
-                >
-                <VictoryLine/>
-                <VictoryScatter size={({ active }) => active ? 8 : 5}/>
-                </VictoryGroup>
-
-            {/* One group per day */}   
-            {renderVictoryGroups()}
-
-        </VictoryChart>
-    </div>
-    }
+        return <VictoryGroup
+            color="#c43a31" 
+            data={date}
+            labels={({ datum }) => `mood: ${datum.y}`}
+            labelComponent={<VictoryTooltip style={{ fontSize: 16 }} />}
+            key={date[0].x}
+            >
+            <VictoryLine />
+            <VictoryScatter size={({ active }) => active ? 8 : 5} />
+        </VictoryGroup>
+        }
+    )
 
     return (
         <div className="row">
+            
             <div className="column1">
                 <h2>{user.first_name}</h2>
                 <p>{user.email}</p>
@@ -75,8 +54,15 @@ function UserTracker({ user }) {
                 <p>Number of Skills: {user.coping_skills.length}</p>
                 <p>Number of Skills: {user.coping_skills.length}</p>
             </div>
+
             <div className="column2">
-                {renderChart()}
+                <VictoryChart className='chart' style={{ parent: { maxWidth: '80%' } }} domain={{y: [0, 5]}}
+                    height={400} width={1000} containerComponent={<VictoryVoronoiContainer />}>
+                    
+                    {/* Create more space between first plot and y */}
+                    {victoryGroups}
+                    
+                </VictoryChart>
             </div>
         </div>
     )
