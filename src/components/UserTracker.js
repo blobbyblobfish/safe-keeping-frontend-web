@@ -26,9 +26,13 @@ function UserTracker({ user }) {
     
     const uniqueDatesNestedArray = Object.values(groupedDatesObject).sort((a, b) => a[0].x > b[0].x ? 1 : -1)
 
+    //Get date and time formatted from date object
+    Date.prototype.datetimeString = function () {
+        return `${this.getHours() > 12 ? this.getHours() - 12 : this.getHours()}:${this.getMinutes() < 10 ? 0 : ''}${this.getMinutes()} ${this.getHours() < 12 ? 'am' : 'pm'}`
+    }
+
     //Render one victory group per date
     const victoryGroups = uniqueDatesNestedArray.map((date) => {
-        console.log(date)
 
         return <VictoryGroup
                 key={date[0].x} color="#c43a31" data={date}
@@ -37,14 +41,14 @@ function UserTracker({ user }) {
                         labels: { fontSize: 15, fill: "#c43a31", padding: 10 },
                     }} >
                                     
-                <VictoryAxis />
-                
                 <VictoryScatter
                 size={({ active }) => active ? 14 : 10} 
                 style={{ labels: { fill: "c43a31", fontSize: 30 } }}
-                labels={({ datum }) => `${datum.y}`}
-                // labels={({ datum }) => `mood: ${datum.y} date: ${datum.x}`}
+                labels={({ datum }) => `${datum.y} ${datum.x.datetimeString()}`}
                 />
+                
+                {/* Renders only x-axis */}
+                <VictoryAxis />
             
             </VictoryGroup>
         }
@@ -58,12 +62,12 @@ function UserTracker({ user }) {
                 <p>{user.email}</p>
                 <p>Number of Skills: {user.coping_skills.length}</p>
                 <p>Number of Entries: {user.diary_cards.length}</p>
-                <p>Number of Skills: {user.coping_skills.length}</p>
+                <p>Earliest entry: {}</p>
                 <p>Number of Skills: {user.coping_skills.length}</p>
             </div>
 
             <div className="column2">
-                <VictoryChart className='chart' domain={{ x: [new Date(user.diary_cards[0].entry_timestamp), new Date()], y: [0, 5] }} scale={{ x: "time" }}
+                <VictoryChart className='chart' domain={{ x: [uniqueDatesNestedArray[0][0].x, new Date()], y: [0, 5] }} scale={{ x: "time" }}
                     style={{ parent: { border: "1px solid #ccc", maxWidth: '80%' }}} 
                     height={400} width={1000} containerComponent={<VictoryVoronoiContainer />}>
                     
