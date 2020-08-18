@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import history from '../history'
 import UserTracker from '../components/UserTracker'
 
 function Dashboard({ state, dispatch }) {

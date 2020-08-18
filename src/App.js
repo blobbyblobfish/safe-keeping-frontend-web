@@ -8,7 +8,6 @@ import RegistrationPage from './pages/RegistrationPage'
 import Dashboard from './pages/Dashboard'
 import MyAccount from './pages/MyAccount'
 
-// import history from './history'
 // import logo from './logo.svg'
 import './App.css'
 
@@ -35,22 +34,6 @@ function App( { state, dispatch, history } ) {
 
   }, []) 
 
-  function renderRegistrationPage() {
-    return <RegistrationPage />
-  }
-
-  function renderLoginPage() {
-    return <LoginPage />
-  }
-
-  function renderDashboard() {
-    return <Dashboard />
-  }
-
-  function renderMyAccount() {
-    return <MyAccount />
-  }
-
   function handleLogout() {
       localStorage.tokenId = ''
       dispatch({type: "LOGOUT"})
@@ -67,7 +50,7 @@ function App( { state, dispatch, history } ) {
         <Route path='/login' render={(routerProps) => <LoginPage {...routerProps} />} />
         <Route path='/register' render={(routerProps) => <RegistrationPage {...routerProps} />} />
         <Route path="/logout" render={handleLogout} />
-        <Route path='/account' render={renderMyAccount} />
+        <Route path='/account' component={MyAccount} />
       </Switch>
     </div>
   )

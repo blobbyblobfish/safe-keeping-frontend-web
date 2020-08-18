@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-// import history from '../history'
 
 function LoginPage({ state, dispatch, history }) {
 
@@ -11,8 +10,6 @@ function LoginPage({ state, dispatch, history }) {
 
     function handleLogin(e) {
         e.preventDefault()
-
-        console.log(history)
 
         const credentials = {
             email: email,
@@ -36,8 +33,6 @@ function LoginPage({ state, dispatch, history }) {
                     dispatch({ type: "LOGIN", payload: json })
                     localStorage.tokenId = `${json.token}${json.therapist.id}`
                     history.push("/dashboard")
-
-                    // if (history.location.pathname === "/dashboard") {window.location.reload(true)}
                 }
             })
         
