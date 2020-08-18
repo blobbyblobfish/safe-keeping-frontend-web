@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import history from '../history'
+// import history from '../history'
 
-function RegistrationPage({ state, dispatch }) {
+function RegistrationPage({ state, dispatch, history }) {
 
     //Controlled inputs
     const [name, setName] = useState('')
@@ -35,7 +35,7 @@ function RegistrationPage({ state, dispatch }) {
                 localStorage.tokenId = `${json.token}${json.therapist.id}`
                 history.push("/dashboard")
 
-                if (history.location.pathname === "/dashboard") {window.location.reload(true)}
+                // if (history.location.pathname === "/dashboard") {window.location.reload(true)}
             })
     }
 

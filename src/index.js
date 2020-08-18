@@ -16,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Provider store={store} >
-        <Route path="/" component={App} />
+        <Route path="/" render={(routerProps) => <App {...routerProps} />} />
       </Provider>
     </Router>
   </React.StrictMode>,

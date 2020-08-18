@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Switch } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
 import LoginPage from './pages/LoginPage'
@@ -8,11 +8,11 @@ import RegistrationPage from './pages/RegistrationPage'
 import Dashboard from './pages/Dashboard'
 import MyAccount from './pages/MyAccount'
 
-import history from './history'
+// import history from './history'
 // import logo from './logo.svg'
 import './App.css'
 
-function App( { state, dispatch } ) {
+function App( { state, dispatch, history } ) {
 
   //Utility
   console.log("IN APP ROOT", state)
@@ -62,11 +62,13 @@ function App( { state, dispatch } ) {
         <h1>Safe Keeping</h1>
       </header>
       <NavBar />
-      <Route path='/login' render={renderLoginPage} />
-      <Route path='/register' render={renderRegistrationPage} />
-      <Route path="/logout" render={handleLogout} />
-      <Route path='/dashboard' render={renderDashboard} />
-      <Route path='/account' render={renderMyAccount} />
+      <Switch>
+        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/login' render={(routerProps) => <LoginPage {...routerProps} />} />
+        <Route path='/register' render={(routerProps) => <RegistrationPage {...routerProps} />} />
+        <Route path="/logout" render={handleLogout} />
+        <Route path='/account' render={renderMyAccount} />
+      </Switch>
     </div>
   )
 }

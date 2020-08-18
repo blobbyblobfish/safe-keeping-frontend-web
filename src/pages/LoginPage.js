@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import history from '../history'
+// import history from '../history'
 
-function LoginPage({ state, dispatch }) {
+function LoginPage({ state, dispatch, history }) {
 
     //Controlled inputs
     const [email, setEmail] = useState('')
@@ -11,6 +11,8 @@ function LoginPage({ state, dispatch }) {
 
     function handleLogin(e) {
         e.preventDefault()
+
+        console.log(history)
 
         const credentials = {
             email: email,
