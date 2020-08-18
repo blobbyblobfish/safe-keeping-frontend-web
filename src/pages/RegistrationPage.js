@@ -44,7 +44,7 @@ function RegistrationPage({ state, dispatch }) {
         <form onSubmit={handleRegister}>
             <input name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Name" />
             <input name="email" value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="email" />
-            <input name="password" value={password} onChange={(e) => setPassword(e.target.value)} type="text" placeholder="password" />
+            <input name="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="password" />
             <input type="submit" />
         </form>
         <NavLink to="/login">Have an account?</NavLink>
