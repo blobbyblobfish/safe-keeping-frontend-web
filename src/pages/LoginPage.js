@@ -26,7 +26,7 @@ function LoginPage({ state, dispatch }) {
             body: JSON.stringify(credentials)
         }
 
-        fetch(`http://localhost:3000/therapists/login`, configObj)
+        fetch(`https://safe-keeping-backend.herokuapp.com/therapists/login`, configObj)
             .then(resp => resp.json())
             .then(json => {
                 if (json.token) {
@@ -44,7 +44,7 @@ function LoginPage({ state, dispatch }) {
         <h1>Welcome</h1>
         <form onSubmit={handleLogin}>
             <input name="email" value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="email" />
-            <input name="password" value={password} onChange={(e) => setPassword(e.target.value)} type="text" placeholder="password" />
+            <input name="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="password" />
             <input type="submit" />
         </form>
         <NavLink to="/register">Don't have an account?</NavLink>

@@ -22,7 +22,7 @@ function App( { state, dispatch } ) {
       
       const id = localStorage.tokenId.slice(89)
 
-      fetch(`http://localhost:3000/therapists/${id}`)
+      fetch(`https://safe-keeping-backend.herokuapp.com/therapists/${id}`)
         .then(resp => resp.json())
         .then(json => {
           dispatch({ type: "LOGIN_WITH_TOKEN", payload: json })
