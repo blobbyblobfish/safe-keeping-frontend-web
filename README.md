@@ -7,6 +7,7 @@ Users can add therapists who can view their progress through the companion web a
 
 ### Tech Stack
 * Rails API backend. PostgreSQL database.
+  * Gems: bcrypt, JWT, Active Model Serializers, CORS
 * React Native w/ Redux mobile app.
   * Libraries: React Native Calendar, React Native Slider, Expo SecureStore, React Native Modal Datetime Picker.
 * React w/ Redux web app.
