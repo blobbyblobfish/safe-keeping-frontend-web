@@ -9,6 +9,9 @@ export default (state = initialState, action) => {
         case "LOGIN_WITH_TOKEN":
             return action.payload.users
         
+        case "LOGOUT":
+            return initialState
+        
         default: return state
     }
 }
