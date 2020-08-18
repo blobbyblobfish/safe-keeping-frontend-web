@@ -31,7 +31,7 @@
 }
 
 .column1 {
-  max-width: 15vw;
+  max-width: 10vw;
   display: flex;
   flex-direction: column;
   flex-basis: 100%;

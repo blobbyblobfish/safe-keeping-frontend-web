@@ -1,13 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { VictoryVoronoiContainer, VictoryAxis, VictoryLabel, VictoryLine, VictoryScatter, VictoryTooltip, VictoryGroup, VictoryChart } from 'victory'
+import { VictoryVoronoiContainer, VictoryAxis, VictoryScatter, VictoryGroup, VictoryChart } from 'victory'
 
 function UserTracker({ user }) {
 
     //Get array of objects where {x: date, y: score} from diary cards.
     const diaryDatesArray = user.diary_cards.filter(dc => !!dc.diary_card_trackers[0] > 0).map(dc => {
         const dateObj = new Date(dc.entry_timestamp)
-        // const date = dateObj.toISOString().slice(0, 10)
         return {x: dateObj, y: dc.diary_card_trackers[0].score}
     })
 
@@ -35,20 +34,22 @@ function UserTracker({ user }) {
     const victoryGroups = uniqueDatesNestedArray.map((date) => {
 
         return <VictoryGroup
-                key={date[0].x} color="#c43a31" data={date}
+                key={date[0].x} color="#2c2c34" data={date}
                 style={{
-                        data: { fill: "#c43a31", fillOpacity: 0.6, stroke: "#c43a31", strokeWidth: 3 },
-                        labels: { fontSize: 15, fill: "#c43a31", padding: 10 },
+                        data: { fill: "#2c2c34", fillOpacity: 0.6, stroke: "#2c2c34", strokeWidth: 1 },
+                        labels: { fontSize: 15, fill: "#2c2c34", padding: 15 },
                     }} >
                                     
                 <VictoryScatter
                 size={({ active }) => active ? 14 : 10} 
-                style={{ labels: { fill: "c43a31", fontSize: 30 } }}
-                labels={({ datum }) => `${datum.y} ${datum.x.datetimeString()}`}
+                labels={({ datum }) => `${datum.x.datetimeString()}`}
+                // labelComponent={<CustomLabel />}
+                // labelComponent={<VictoryTooltip style={{ fontSize: 10 }}/>}
                 />
                 
                 {/* Renders only x-axis */}
                 <VictoryAxis />
+                <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
             
             </VictoryGroup>
         }
@@ -60,14 +61,10 @@ function UserTracker({ user }) {
             <div className="column1">
                 <h2>{user.first_name}</h2>
                 <p>{user.email}</p>
-                <p>Number of Skills: {user.coping_skills.length}</p>
-                <p>Number of Entries: {user.diary_cards.length}</p>
-                <p>Earliest entry: {}</p>
-                <p>Number of Skills: {user.coping_skills.length}</p>
             </div>
 
             <div className="column2">
-                <VictoryChart className='chart' domain={{ x: [uniqueDatesNestedArray[0][0].x, new Date()], y: [0, 5] }} scale={{ x: "time" }}
+                <VictoryChart className='chart' domainPadding={{ x: 30, y: 20 }} domain={{ x: [uniqueDatesNestedArray[0][0].x, new Date()], y: [1, 5] }} scale={{ x: "time" }}
                     style={{ parent: { border: "1px solid #ccc", maxWidth: '80%' }}} 
                     height={400} width={1000} containerComponent={<VictoryVoronoiContainer />}>
                     
