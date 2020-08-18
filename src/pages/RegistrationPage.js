@@ -28,7 +28,7 @@ function RegistrationPage({ state, dispatch }) {
             body: JSON.stringify(newUser)
         }
 
-        fetch(`https://safe-keeping-backend.herokuapp.com/therapists`, configObj)
+        fetch(`http://localhost:3000/therapists`, configObj)
             .then(resp => resp.json())
             .then(json => {
                 dispatch({ type: "LOGIN", payload: json })

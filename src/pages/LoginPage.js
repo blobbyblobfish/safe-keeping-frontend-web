@@ -26,10 +26,11 @@ function LoginPage({ state, dispatch }) {
             body: JSON.stringify(credentials)
         }
 
-        fetch(`https://safe-keeping-backend.herokuapp.com/therapists/login`, configObj)
+        fetch(`http://localhost:3000/therapists/login`, configObj)
             .then(resp => resp.json())
             .then(json => {
                 if (json.token) {
+                    console.log(json)
                     dispatch({ type: "LOGIN", payload: json })
                     localStorage.tokenId = `${json.token}${json.therapist.id}`
                     history.push("/dashboard")
