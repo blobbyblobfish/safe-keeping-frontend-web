@@ -31,7 +31,7 @@
 }
 
 .column1 {
-  max-width: 10vw;
+  max-width: 14vw;
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
@@ -48,6 +48,11 @@
 .rightAlign {
   text-align: right;
   padding-right: 6.3vw
+}
+
+.leftAlign {
+  text-align: left;
+  padding-left: 6.3vw
 }
 
 .navbar {
