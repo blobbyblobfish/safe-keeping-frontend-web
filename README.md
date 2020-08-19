@@ -11,6 +11,7 @@ Users can add therapists who can view their progress through the companion web a
 * React Native w/ Redux mobile app.
   * Libraries: React Native Calendar, React Native Slider, Expo SecureStore, React Native Modal Datetime Picker, React Native Reanimated, React Native Gesture Handler, React Native SVG.
 * React w/ Redux web app.
+  * Libraries: Victory.
 
 ### Installation
 ###### First clone the frontend(s) and backend.
