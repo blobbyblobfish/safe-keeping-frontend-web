@@ -50,6 +50,11 @@
   padding-right: 6.3vw
 }
 
+.leftAlign {
+  text-align: left;
+  padding-left: 6.3vw
+}
+
 .navbar {
   padding: 4vh;
   display: flex;

@@ -36,9 +36,9 @@ function RegistrationPage({ state, dispatch, history }) {
             })
     }
 
-    return <div>
+    return <div className="leftAlign" >
         <h1>Register</h1>
-        <form onSubmit={handleRegister}>
+        <form style={{paddingTop: 10, paddingBottom: 15}} onSubmit={handleRegister}>
             <input name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Name" />
             <input name="email" value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="email" />
             <input name="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="password" />

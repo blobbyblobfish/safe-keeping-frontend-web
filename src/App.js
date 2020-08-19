@@ -36,7 +36,8 @@ function App( { state, dispatch, history } ) {
 
   function handleLogout() {
       localStorage.tokenId = ''
-      dispatch({type: "LOGOUT"})
+      dispatch({ type: "LOGOUT" })
+      history.push("/login")
   }
     
   return (
