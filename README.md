@@ -7,11 +7,11 @@ Users can add therapists who can view their progress through the companion web a
 
 ### Tech Stack
 * Rails API backend. PostgreSQL database.
-  * Gems: bcrypt, JWT, Active Model Serializers, CORS.
+  * Gems: bcrypt, JWT, Active Model Serializers, Rack CORS, dotenv.
 * React Native w/ Redux mobile app.
-  * Libraries: React Native Calendar, React Native Slider, Expo SecureStore, React Native Modal Datetime Picker, React Native Reanimated, React Native Gesture Handler, React Native SVG.
+  * Libraries: React Navigation, React Native Calendar, React Native Slider, Expo SecureStore, React Native Modal Datetime Picker, React Native Reanimated, React Native Gesture Handler, React Native SVG.
 * React w/ Redux web app.
-  * Libraries: Victory.
+  * Libraries: React Router DOM, Victory.
 
 ### Installation
 ###### First clone the frontend(s) and backend.
