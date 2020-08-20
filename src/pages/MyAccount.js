@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 function MyAccount({ state, dispatch }) {
 
     return (
-        <div>
-            <h1>My Account</h1>
+        <div className="row">
+            <h2>My Account</h2>
         </div>
     )
 }

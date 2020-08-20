@@ -10,53 +10,51 @@
 }
 
 .dashboard {
-  padding-left: 4vw;
-  padding-right: 4vw;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%
 }
 
 .chart {
-  /* padding-top: 100vh; */
-  padding-left: 5vw;
-  width: 100%
+  width: 80%
 }
 
 .row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.column1 {
-  max-width: 10vw;
+  margin-left: 4vw;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.row1 {
+  margin-left: 4vw;
+  max-height: 10vh;
+  display: flex;
+  flex-direction: row;
   flex-basis: 100%;
   flex: 1;
 }
 
-.column2 {
+.row2 {
+  margin-left: 4vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-basis: 100%;
   flex: 1;
 }
 
 .rightAlign {
   text-align: right;
-  padding-right: 6.3vw
+  margin-right: 6.3vw
 }
 
 .leftAlign {
   text-align: left;
-  padding-left: 6.3vw
+  margin-left: 6.3vw
 }
 
 .navbar {
-  padding: 4vh;
+  margin: 4vh;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -64,7 +62,7 @@
 }
 
 .navlink {
-  padding: 1vh
+  margin: 1vh
 }
 
 @media (prefers-reduced-motion: no-preference) {

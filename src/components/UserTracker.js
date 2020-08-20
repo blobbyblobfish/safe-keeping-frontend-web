@@ -54,16 +54,15 @@ function UserTracker({ user }) {
     )
 
     return (
-        <div className="row">
+        <div >
             
-            <div className="column1">
-                <h2>{user.first_name}</h2>
-                <p>{user.email}</p>
+            <div className="row1">
+                <h3>{user.first_name}</h3>
             </div>
 
-            <div className="column2">
-                <VictoryChart className='chart' domainPadding={{ x: 30, y: 20 }} domain={{ x: [uniqueDatesNestedArray[0][0].x, new Date()], y: [1, 5] }} scale={{ x: "time" }}
-                    style={{ parent: { border: "1px solid #ccc", maxWidth: '80%' }}} 
+            <div className="row2">
+                <VictoryChart className='leftAlign' domainPadding={{ x: 30, y: 20 }} domain={{ x: [uniqueDatesNestedArray[0][0].x, new Date()], y: [1, 5] }}
+                    scale={{ x: "time" }} style={{ parent: { border: "1px solid #ccc", maxWidth: '80%' }}} 
                     height={400} width={1000} containerComponent={<VictoryVoronoiContainer />}>
                     
                     {victoryGroups}
