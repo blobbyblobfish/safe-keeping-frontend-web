@@ -11,8 +11,8 @@ function Dashboard({ state, dispatch }) {
 
     return (
         <div className="dashboard">
-            <h4 className="rightAlign">My Name: {state.auth.name} </h4>
-            <h4 className="rightAlign" style={{ paddingBottom: 20 }}>My Email: {state.auth.email} </h4>
+            <h2 className="row">My Clients</h2>
+            {/* <h4 className="rightAlign" style={{ paddingBottom: 20 }}>My Email: {state.auth.email} </h4> */}
             {renderUserTrackers()}
         </div>
     )

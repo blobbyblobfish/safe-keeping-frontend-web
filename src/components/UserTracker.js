@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { VictoryVoronoiContainer, VictoryAxis, VictoryScatter, VictoryGroup, VictoryChart } from 'victory'
+import { VictoryVoronoiContainer, VictoryAxis, VictoryTooltip, VictoryScatter, VictoryGroup, VictoryChart } from 'victory'
 
 function UserTracker({ user }) {
 
@@ -43,11 +43,9 @@ function UserTracker({ user }) {
                 <VictoryScatter
                 size={({ active }) => active ? 14 : 10} 
                 labels={({ datum }) => `${datum.x.datetimeString()}`}
-                // labelComponent={<CustomLabel />}
-                // labelComponent={<VictoryTooltip style={{ fontSize: 10 }}/>}
+                labelComponent={<VictoryTooltip style={{ fontSize: 12 }}/>}
                 />
                 
-                {/* Renders only x-axis */}
                 <VictoryAxis />
                 <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
             
@@ -56,16 +54,15 @@ function UserTracker({ user }) {
     )
 
     return (
-        <div className="row">
+        <div >
             
-            <div className="column1">
-                <h2>{user.first_name}</h2>
-                <p>{user.email}</p>
+            <div className="row1">
+                <h3>{user.first_name}</h3>
             </div>
 
-            <div className="column2">
-                <VictoryChart className='chart' domainPadding={{ x: 30, y: 20 }} domain={{ x: [uniqueDatesNestedArray[0][0].x, new Date()], y: [1, 5] }} scale={{ x: "time" }}
-                    style={{ parent: { border: "1px solid #ccc", maxWidth: '80%' }}} 
+            <div className="row2">
+                <VictoryChart className='leftAlign' domainPadding={{ x: 30, y: 20 }} domain={{ x: [uniqueDatesNestedArray[0][0].x, new Date()], y: [1, 5] }}
+                    scale={{ x: "time" }} style={{ parent: { border: "1px solid #ccc", maxWidth: '80%' }}} 
                     height={400} width={1000} containerComponent={<VictoryVoronoiContainer />}>
                     
                     {victoryGroups}
