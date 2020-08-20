@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { VictoryVoronoiContainer, VictoryAxis, VictoryScatter, VictoryGroup, VictoryChart } from 'victory'
+import { VictoryVoronoiContainer, VictoryAxis, VictoryTooltip, VictoryScatter, VictoryGroup, VictoryChart } from 'victory'
 
 function UserTracker({ user }) {
 
@@ -43,11 +43,9 @@ function UserTracker({ user }) {
                 <VictoryScatter
                 size={({ active }) => active ? 14 : 10} 
                 labels={({ datum }) => `${datum.x.datetimeString()}`}
-                // labelComponent={<CustomLabel />}
-                // labelComponent={<VictoryTooltip style={{ fontSize: 10 }}/>}
+                labelComponent={<VictoryTooltip style={{ fontSize: 12 }}/>}
                 />
                 
-                {/* Renders only x-axis */}
                 <VictoryAxis />
                 <VictoryAxis dependentAxis tickValues={[1, 2, 3, 4, 5]} />
             
