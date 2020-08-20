@@ -40,7 +40,7 @@ function LoginPage({ state, dispatch, history }) {
 
     return <div className="leftAlign">
         <h1>Welcome</h1>
-        <form style={{paddingBottom: 15}} onSubmit={handleLogin}>
+        <form style={{paddingTop: 10, paddingBottom: 15}} onSubmit={handleLogin}>
             <input name="email" value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="email" />
             <input name="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="password" />
             <input type="submit" />
