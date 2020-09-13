@@ -5,6 +5,8 @@
 Safe Keeping is a diary tracker and emotional first aid kit designed to help people learn and practice coping skills and track their daily mental health. 
 Users can add therapists who can view their progress through the companion web app.
 
+[Watch a video walkthrough](https://www.youtube.com/watch?v=bTRsh4LWK98)
+
 ### Tech Stack
 * Rails API backend. PostgreSQL database.
   * Gems: bcrypt, JWT, Active Model Serializers, Rack CORS, dotenv.
